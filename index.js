@@ -8,7 +8,6 @@ const cloudinary = require("cloudinary").v2; // Cloud images
 
 const app = express(); // Créer le serveur
 app.use(formidable()); // Activer formidable
-
 app.use(cors()); // Activer cors pour accepte toutes les connexions browser
 
 mongoose.connect(process.env.MONGODB_URI, {
@@ -18,12 +17,15 @@ mongoose.connect(process.env.MONGODB_URI, {
 
 require("./models/Users");
 // require("./models/Offers");
+require("./models/Publish");
 
 const userRoutes = require("./routes/user");
 // const offerRoutes = require("./routes/offer");
+const publishRoutes = require("./routes/publish");
 
 // Active Routes
 app.use(userRoutes);
+app.use(publishRoutes);
 
 app.listen(process.env.PORT, () => {
   console.log("Server Starter :", process.env.PORT);

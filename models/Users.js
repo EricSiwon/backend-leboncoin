@@ -9,9 +9,21 @@ const Users = mongoose.model("Users", {
     username: {
       type: String,
       default: ""
+    },
+    phone: {
+      type: Number,
+      default: "00"
     }
   },
   email: {
+    type: String,
+    default: ""
+  },
+  salt: {
+    type: String,
+    default: ""
+  },
+  hash: {
     type: String,
     default: ""
   }
